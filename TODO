@@ -1,0 +1,11 @@
+hyprland.conf	= ~/.config/hypr/hyprland.conf
+config.fish	= ~/.config/fish/config.fish
+kitty.conf	= ~/.config/kitty/kitty.conf
+#config.nwg-look	= ~/.config/nwg-look/config
+config.swayidle	= ~/.config/swayidle/config
+lock.sh		= ~/.config/swayidle/lock.sh
+config.waybar	= ~/.config/waybar/config
+style.css	= ~/.config/waybar/style.css
+config.swaylock	= ~/.config/swaylock/config
+
+# Set pipewire & pipewire-pulse.service as user

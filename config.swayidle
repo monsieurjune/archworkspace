@@ -1,0 +1,2 @@
+timeout 300 ~/.config/swayidle/lock.sh
+lock ~/.config/swayidle/lock.sh
