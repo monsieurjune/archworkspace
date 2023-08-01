@@ -1,3 +1,2 @@
 #!/bin/bash
-systemctl suspend
-swaylock
+bash -c "sleep 2; systemctl suspend" & swaylock
