@@ -29,5 +29,6 @@ $build $sh_dir
 cat ./lock.sh > $sh_dir/lock.sh; chmod +x $sh_dir/lock.sh
 cat ./hibernate.sh > $sh_dir/hibernate.sh; chmod +x $sh_dir/hibernate.sh
 cat ./hybrid_sleep.sh > $sh_dir/hybrid_sleep.sh; chmod +x $sh_dir/hybrid_sleep.sh
+cat ./kbdlight.sh > $sh_dir/kbdlight.sh; chmod +x $sh_dir/kbdlight.sh
 
 $build $sw_lock_dir; cat ./$cfg.swaylock > $sw_lock_dir/$cfg
