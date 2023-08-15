@@ -6,7 +6,7 @@ timestr=%R
 datestr=%a, %e of %B
 
 fade-in=0.4
-image=~/Picture/.Session/login.jpg
+image=~/Pictures/.Session/login.jpg
 
 effect-blur=16x4
 effect-scale=0.5
