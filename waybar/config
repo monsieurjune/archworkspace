@@ -5,81 +5,92 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 25,
-  // "margin": "4 7 0 7",
-  // "width": 1920, // Comment for dynamic width
+  "height": 20,
+
   "modules-left": [
-    "wlr/workspaces",
+    "hyprland/workspaces",
     "custom/separator",
-    "temperature",
-    "custom/separator",
-    "idle_inhibitor",
-    /*"mpd",*/
-    // "custom/cava",
-    "custom/todo",
-  ],
-  "modules-center": [
-    "clock",
-  ],
-  "modules-right": [
-    "network",
-    "custom/separator",
-    "bluetooth",
-	"custom/separator",
     "pulseaudio",
     "custom/separator",
     "backlight",
+    "custom/separator",
+    "network",
+    "custom/separator",
+    "bluetooth",
+  ],
+
+  "modules-center": [
+    "idle_inhibitor",
+    "custom/separator",
+    "clock",
+  ],
+
+  "modules-right": [
+    "temperature",
     "custom/separator",
     "cpu",
     "custom/separator",
     "memory",
     "custom/separator",
+    "disk",
+    "custom/separator",
     "battery",
+    "custom/separator",
     "tray"
   ],
+
   "custom/separator": {
     "format": "",
     "interval": "once",
     "tooltip": false
   },
-  "wlr/workspaces": {
+
+  "hyprland/workspaces": {
+    "format": "{name}",
     "disable-scroll": true,
-	"on-click": "activate"
+	  "on-click": "activate",
+    "all-outputs": true,
+    "sort-by-number": true,
   },
+
   "clock": {
     "format": "<span foreground='#7dcfff'>🗓️</span> {:%d %B %Y - %I:%M %p}",
     "interval": 60,
     "tooltip": true,
-    "tooltip-format": "{:%A, %d %B %Y}\n<tt>{calendar}</tt>"
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode"          : "year",
+      "mode-mon-col"  : 3,
+      "weeks-pos"     : "right",
+      "on-scroll"     : 1,
+      "on-click-right": "mode",
+      "format": {
+        "months":     "<span color='#ffead3'><b>{}</b></span>",
+        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks":      "<span color='#99ffdd'><b>{}</b></span>",
+        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    }
   },
-  /*"mpd": {
-    "max-length": 30,
-    "format": "<span foreground='#bb9af7'></span> {title}",
-    "format-paused": " <span style='italic'>{title}</span>",
-	"format-stopped":"<span foreground='#bb9af7'></span>",
-    "format-disconnected": "<span foreground='#f25e5e'></span>",
-    "on-click": "mpc --quiet toggle",
-    "on-click-right": "mpc ls | mpc add",
-    "on-click-middle": "mpv",
-    "on-scroll-up": "mpc --quiet prev",
-    "on-scroll-down": "mpc --quiet next",
-    "smooth-scrolling-threshold":5,
-    "tooltip-format": "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})"
-  },*/
+
   "disk": {
     "interval": 18000,
     "format": "<span foreground='#9ece6a'>💽</span> {percentage_used}%",
     "tooltip-format": "{used} used out of {total} on {path}"
   },
+
   "cpu": {
     "interval": 1,
     "format": "<span foreground='#e0af68'>🔲</span> {usage}%"
   },
+
   "memory": {
     "interval": 300,
     "format": "<span foreground='#7aa2f7'>󰘚</span> {percentage}%",
     "tooltip-format": "{used:0.2f}GiB used out of {total:0.2f}GiB"
   },
+
   "battery": {
     "interval": 600,
     "design-capacity": false,
@@ -92,10 +103,12 @@
     "format-time": "{H}h {M}m",
     "format-icons": ["", "", "", "", "", ""]
   },
+
   "tray": {
     "icon-size": 15,
     "spacing": 5,
   },
+
   "network": {
     "interval": 1,
     "format-wifi": "<span foreground='#61AF1F'>ᯤ</span> {signalStrength}%",
@@ -104,8 +117,9 @@
     "format-disconnected": "<span foreground='#61AF1F'>✖</span> Disconnected",
     "format-alt": "<span foreground='#61AF1F'></span> {ipaddr} ({ifname})",
     "on-click-right": "networkmanager_dmenu",
-	"tooltip-format": "Upload: {bandwidthUpBytes}\nDownload: {bandwidthDownBytes}"
+	  "tooltip-format": "Upload: {bandwidthUpBytes}\nDownload: {bandwidthDownBytes}"
   },
+
   "bluetooth": {
 	"format": "󰂲 {status}",
   	"format-connected": " {controller_alias}",
@@ -114,17 +128,16 @@
   	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n{num_connections} connected\n\n{device_enumerate}",
   	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
   	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-	"on-click": "/home/arch/.config/waybar/scripts/bt_toggle.sh",
-	"on-click-right": "rofi-bluetooth"
+	  "on-click": "/home/arch/.config/waybar/scripts/bt_toggle.sh",
+	  "on-click-right": "rofi-bluetooth"
   },
+
   "backlight": {
-    //"device": "intel_backlight",
-    //"on-scroll-up": "light -A 5",
-    //"on-scroll-down": "light -U 5",
-	"tooltip": false,
+	  "tooltip": false,
     "format": "<span foreground='#b48ead'>{icon}</span> {percent}%",
     "format-icons": ["🌥️","⛅","🌤️","☀️"]
   },
+
   "pulseaudio": {
     "scroll-step": 1,
     "format": "<span foreground='#d08770'>{icon}</span> {volume}%", 
@@ -139,15 +152,13 @@
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "tooltip": false,
   },
-  /*"custom/cava": {
-    "exec": "~/.config/waybar/scripts/cava.sh",
-    "tooltip": false
-  },*/
+
   "temperature": {
     "hwmon-path": "/sys/devices/virtual/thermal/thermal_zone0/temp",
     "format": " {temperatureC}°C",
     "tooltip": false
   },
+
   "idle_inhibitor": {
     "tooltip": false,
     "format": "{icon}",
@@ -157,4 +168,3 @@
     }
   },
 }
-

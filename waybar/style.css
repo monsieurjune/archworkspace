@@ -1,6 +1,6 @@
 * {
   font-family: "FiraCode Nerd Font";
-  font-size: 13pt;
+  font-size: 10pt;
   border: none;
   border-radius: 0;
   transition-property: background-color;
@@ -26,7 +26,7 @@ window#waybar > box {
   padding-left: 4px;
   padding-right: 4px;
   margin: 0 7px 0 0;
-  box-shadow: 1px 1px 2px 1px rgba(0,0,0, 0.3);
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
 }
 
 #workspaces button.focused,
