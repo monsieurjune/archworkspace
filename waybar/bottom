@@ -1,0 +1,61 @@
+{
+    "hyprland/workspaces": 
+    {
+        "format": "{name}",
+        "disable-scroll": true,
+	    "on-click": "activate",
+        "all-outputs": true,
+        "sort-by-number": true
+    },
+
+    "battery": 
+    {
+        "interval": 600,
+        "design-capacity": false,
+        "states": 
+        {
+            "warning": 25,
+            "critical":10 
+        },
+        "format": "<span foreground='#f7f776'>{icon}</span> {capacity}%",
+        "format-charging": "<span foreground='#7ef78e'>{icon}</span> {capacity}%",
+        "format-time": "{H}h {M}m",
+        "format-icons": ["", "", "", "", "", ""]
+    },
+
+    "memory": 
+    {
+        "interval": 300,
+        "format": "<span foreground='#7aa2f7'>󰘚</span> {percentage}%",
+        "tooltip-format": "{used:0.2f}GiB used out of {total:0.2f}GiB"
+    },
+
+    "cpu": 
+    {
+        "interval": 1,
+        "format": "<span foreground='#e0af68'>🔲</span> {usage}%"
+    },
+
+    "temperature": 
+    {
+        "hwmon-path": "/sys/devices/virtual/thermal/thermal_zone0/temp",
+        "format": " {temperatureC}°C",
+        "tooltip": false
+    },
+
+    "disk": 
+    {
+        "interval": 18000,
+        "format": "<span foreground='#9ece6a'>💽</span> {percentage_used}%",
+        "tooltip-format": "{used} used out of {total} on {path}"
+    },
+
+    "custom/btop":
+    {
+        "format": "🖳",
+        "interval": 0,
+        "tooltip": false,
+        "on-click": "kitty btop",
+        "on-click-right": "caja"
+    }
+}

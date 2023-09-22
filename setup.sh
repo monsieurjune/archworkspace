@@ -2,33 +2,33 @@
 
 # Directory
 config_dir=~/.config
-fish_dir="$config_dir/fish"
-hypr_dir="$config_dir/hypr"
-kitty_dir="$config_dir/kitty"
-waybar_dir="$config_dir/waybar"
-sw_idle_dir="$config_dir/swayidle"
-sw_lock_dir="$config_dir/swaylock"
-sh_dir=~/.local/script
+sh_dir=~/.local/script/hyprland
 
-# Action
-build='mkdir -p'
-cfg=config
+# Fish
+cp ./fish/config $config_dir/fish/config
 
-$build $fish_dir; cat ./config.fish > $fish_dir/config.fish
-$build $hypr_dir; cat ./hyprland.conf > $hypr_dir/hyprland.conf
-$build $kitty_dir; cat ./kitty.conf > $kitty_dir/kitty.conf
+# Hyprland
+cp ./hypr/hyprland.conf $config_dir/hypr/hyprland.conf
 
-$build $waybar_dir
-cat ./$cfg.waybar > $waybar_dir/$cfg
-cat ./style.css > $waybar_dir/style.css
+# Kitty
+cp ./kitty/kitty.conf $config_dir/kitty/kitty.conf
 
-$build $sw_idle_dir;
-cat ./$cfg.swayidle > $sw_idle_dir/$cfg
+# Waybar
+cp ./waybar/config $config_dir/waybar/config
+cp ./waybar/style.css $config_dir/waybar/style.css
+cp ./waybar/top $config_dir/waybar/top
+cp ./waybar/bottom $config_dir/waybar/bottom
 
-$build $sh_dir
-cat ./lock.sh > $sh_dir/lock.sh; chmod +x $sh_dir/lock.sh
-cat ./hibernate.sh > $sh_dir/hibernate.sh; chmod +x $sh_dir/hibernate.sh
-cat ./hybrid_sleep.sh > $sh_dir/hybrid_sleep.sh; chmod +x $sh_dir/hybrid_sleep.sh
-cat ./kbdlight.sh > $sh_dir/kbdlight.sh; chmod +x $sh_dir/kbdlight.sh
+# Swayidle
+cp ./swayidle/config $config_dir/swayidle/config
 
-$build $sw_lock_dir; cat ./$cfg.swaylock > $sw_lock_dir/$cfg
+# Swaylock
+cp ./swaylock/config $config_dir/swaylock/config
+
+# Script
+cp ./script/hibernate.sh $sh_dir/hibernate.sh
+cp ./script/hybrid_sleep.sh $sh_dir/hybrid_sleep.sh
+cp ./script/lock.sh $sh_dir/lock.sh
+cp ./script/kbdlight.sh $sh_dir/kbdlight.sh
+cp ./script/logout.sh $sh_dir/logout.sh
+cp ./script/btop.sh $sh_dir/btop.sh

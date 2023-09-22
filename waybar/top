@@ -1,0 +1,128 @@
+{
+    "clock": 
+    {
+        "format": "<span foreground='#7dcfff'>🗓️</span> {:%d %B %Y - %I:%M %p}",
+        "interval": 60,
+        "tooltip": true,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": 
+        {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "on-click-right": "mode",
+            "format":
+            {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+
+    "tray": 
+    {
+        "icon-size": 15,
+        "spacing": 5
+    },
+
+    "network": 
+    {
+        "interval": 1,
+        "format-wifi": "<span foreground='#61AF1F'>ᯤ</span> {signalStrength}%",
+        "format-ethernet": "<span foreground='#61AF1F'>🌐</span> ({ipaddr})",
+        "format-linked": "<span foreground='#61AF1F'>🛰️</span> {essid} (No IP)",
+        "format-disconnected": "<span foreground='#61AF1F'>✖</span> Disconnected",
+        "on-click-right": "networkmanager_dmenu",
+	    "tooltip-format": "IP: {ipaddr} ({ifname})\nUpload: {bandwidthUpBytes}\nDownload: {bandwidthDownBytes}"
+    },
+
+    "bluetooth": 
+    {
+	    "format": "󰂲 {status}",
+  	    "format-connected": " {controller_alias}",
+  	    "format-connected-battery": " {device_battery_percentage}%",
+  	    "tooltip-format": "{controller_alias}\t{controller_address}\n{num_connections} connected",
+  	    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n{num_connections} connected\n\n{device_enumerate}",
+  	    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+  	    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+	    "on-click": "/home/arch/.config/waybar/scripts/bt_toggle.sh",
+	    "on-click-right": "rofi-bluetooth"
+    },
+
+    "backlight": 
+    {
+	    "tooltip": false,
+        "format": "<span foreground='#b48ead'>{icon}</span> {percent}%",
+        "format-icons": ["🌥️","⛅","🌤️","☀️"],
+        "on-click-right": "~/.local/script/hyprland/kbdlight.sh",
+        "tooltip": false
+    },
+
+    "pulseaudio": 
+    {
+        "scroll-step": 1,
+        "format": "<span foreground='#d08770'>{icon}</span> {volume}%", 
+        "format-muted": "<span>🔇</span>{volume}%",
+        "format-icons": {"default": ["", "", ""]},
+        "states": {"warning": 85},
+        "scroll-step": 1,
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "tooltip": false
+    },
+
+    "idle_inhibitor": 
+    {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": 
+        {
+            "activated": "🔒",
+            "deactivated": "🔓"
+        }
+    },
+
+    "custom/logout": 
+    {
+        "format": "⏼ ",
+        "interval": 0,
+        "tooltip": false,
+        "on-click": "hyprctl dispatch exit"
+    },
+
+    "custom/sleep": 
+    {
+        "format": "⏽⏽",
+        "interval": 0,
+        "tooltip": false,
+        "on-click": "~/.local/script/hyprland/lock.sh"
+    },
+
+    "custom/hibernate": 
+    {
+        "format": "⏾",
+        "interval": 0,
+        "tooltip": false,
+        "on-click": "~/.local/script/hyprland/hibernate.sh"
+    },
+
+    "custom/shutdown": 
+    {
+        "format": "⏻",
+        "interval": 0,
+        "tooltip": false,
+        "on-click": "shutdown now"
+    },
+
+    "custom/reboot": 
+    {
+        "format": "⭮",
+        "interval": 0,
+        "tooltip": false,
+        "on-click": "reboot"
+    }
+}
